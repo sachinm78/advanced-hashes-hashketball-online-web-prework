@@ -148,7 +148,7 @@ def team_colors(team_name)
   hash.each do |location, info|
     if hash[location].values.include?(team_name)
       info.each do |data, stats| 
-        if info == :colors
+        if data == :colors
           return stats
         end
       end
