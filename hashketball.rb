@@ -178,8 +178,8 @@ def player_numbers(team_name)
     if hash[location].values.include?(team_name)
       info.each do |data, stats| 
         if data.class == Hash
-          data.each do |player, |
-            stats.each do |stat, int|
+          data.each do |player, attribute|
+            attribute.each do |stat, int|
               if stat == :number
                 array << int.to_i
               end
@@ -191,3 +191,5 @@ def player_numbers(team_name)
   end
   return array
 end
+
+
