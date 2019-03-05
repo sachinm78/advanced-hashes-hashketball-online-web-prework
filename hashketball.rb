@@ -194,36 +194,43 @@ end
 
 
 def player_stats(name)
-  hash = game_hash
-  hash.each do |location, attributes| 
-    attributes.each do |attribute, info| 
-      if info.include?(name) 
-       return hash[location][attribute][name]
+  player_stats = nil 
+  game_hash.each do |home_away, team_info|
+    team_info.each do |data_label, data|
+      if data_label == :players
+        data.each do |player_name, stats|
+          if player_name == name
+            player_stats = stats
+          end
+        end
       end
     end
   end
+  player_stats
 end
 
 
 def big_shoe_rebounds
-  hash = game_hash
-  player_name = ""
-  shoe_size = 0
-  hash.each do |location, attributes|
-    attributes.each do |attribute, info|
-      if info.class == Hash
-        info.each do |player, stats|
-            stats.each do |stat, int|
-              if stat == :shoe
-                if int > shoe_size
-                  shoe_size = int
-                  player_name = player
-                end
+  biggest_shoe = nil
+  big_shoe_player_rebounds = nil
+  game_hash.each do |home_or_away, team_info|
+    team_info.each do |data_label, data|
+      if data_label == :players
+        data.each do |player_name, stats|
+          stats.each do |stat_name, value|
+            if stat_name == :shoe
+              if biggest_shoe == nil
+                biggest_shoe = value
+                big_shoe_player_rebounds = game_hash[home_or_away][:players][player_name][:rebounds]
+              elsif value > biggest_shoe
+                biggest_shoe = value
+                big_shoe_player_rebounds = game_hash[home_or_away][:players][player_name][:rebounds]
               end
             end
           end
-        return hash[location][attribute][player_name][:rebounds]
+        end
       end
     end
   end
+  big_shoe_player_rebounds
 end
