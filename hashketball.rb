@@ -171,3 +171,23 @@ def team_names
 end  
 
 
+def player_numbers(team_name)
+  hash = game_hash
+  array = []
+  hash.each do |location, info|
+    if hash[location].values.include?(team_name)
+      info.each do |data, stats| 
+        if data.class == Hash
+          data.each do |player, |
+            stats.each do |stat, int|
+              if stat == :number
+                array << int.to_i
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  return array
+end
