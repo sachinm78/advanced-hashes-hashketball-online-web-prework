@@ -4,7 +4,8 @@ def game_hash
     :home => {
       :team_name => "Brooklyn Nets"
       :colors => ["Black", "White"]
-      :players => {name => {
+      :players => {
+        
         :number
         :shoe
         :points
