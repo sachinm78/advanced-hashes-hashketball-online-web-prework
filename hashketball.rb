@@ -134,8 +134,8 @@ def shoe_size(name)
   hash = game_hash
   hash.each do |location, info| 
     info.each do |data, stats| 
-      if stats.include?(shoe_size) 
-       return hash[location][data][shoe_size][:shoe]
+      if stats.include?(shoe) 
+       return hash[location][data][shoe][:shoe]
       end
     end
   end
