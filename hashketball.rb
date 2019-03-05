@@ -59,11 +59,11 @@ def game_hash
     },
     
     :away => {
-      :team_name => "Brooklyn Nets"
-      :colors => ["Black", "White"]
+      :team_name => "Charlotte Hornets"
+      :colors => ["Turquoise", "Purple"]
       :players => {
-        "Alan Anderson" => {
-        :number => 0 
+        "Jeff Adrien" => {
+        :number => 4 
         :shoe => 16
         :points
         :rebounds
