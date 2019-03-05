@@ -193,6 +193,18 @@ def player_numbers(team_name)
 end
 
 
+def player_stats(name)
+  hash = game_hash
+   hash.each do |location, info|
+   info.each do |data, stats| 
+    if stats.include?(name) 
+      return hash[location][data][name]
+      end
+    end
+  end
+end
+
+
 def big_shoe_rebounds
   hash = game_hash
   player_name = ""
